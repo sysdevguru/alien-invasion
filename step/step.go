@@ -19,6 +19,7 @@ var (
 	moveMap  = make(map[int][]string)
 	movePath = []int{}
 	cityArr  = []string{}
+	MapPath  = ""
 )
 
 // step represents status of Cities
@@ -132,9 +133,9 @@ func (s *Step) Run() {
 
 // read map file
 func (s *Step) ReadCityInfo(initial bool) {
-	file, err := os.Open("./map.txt")
+	file, err := os.Open(MapPath)
 	if err != nil {
-		fmt.Printf("alien-invasion: unexpected Reading file failure: %v", err)
+		fmt.Printf("alien-invasion: unexpected Reading file failure: %v\n", err)
 		return
 	}
 	defer file.Close()
@@ -144,12 +145,12 @@ func (s *Step) ReadCityInfo(initial bool) {
 		if initial {
 			cityNum++
 
-			splitArr := strings.Split(scanner.Text(), " ")
+			splitArr := strings.Split(strings.TrimSpace(scanner.Text()), " ")
 			cityMap[splitArr[0]] = cityNum
 			numMap[cityNum] = splitArr[0]
 			cityArr = append(cityArr, splitArr[0])
 			for i := 1; i < len(splitArr); i++ {
-				nameArr := strings.Split(splitArr[i], "=")
+				nameArr := strings.Split(strings.TrimSpace(splitArr[i]), "=")
 				moveMap[cityMap[splitArr[0]]] = append(moveMap[cityMap[splitArr[0]]], nameArr[1])
 			}
 			s.Cities = cityArr

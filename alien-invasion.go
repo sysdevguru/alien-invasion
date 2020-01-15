@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strconv"
@@ -14,24 +15,24 @@ var (
 
 func usage() {
 	fmt.Printf("alien-invasion: usage\n")
-	fmt.Printf("\t\t./alien-invasion [number of aliens]\n")
+	fmt.Printf("\t\t./alien-invasion -aliens=[number of aliens] -map=[map file]\n")
 }
 
 func main() {
-	if len(os.Args[1:]) == 0 || len(os.Args[1:]) > 1 {
+	if len(os.Args[1:]) == 0 || len(os.Args[1:]) > 2 {
 		usage()
 		return
 	}
 
+	numPtr := flag.Int("aliens", 3, "aliens number")
+	mapPtr := flag.String("map", "maps/map.txt", "map file")
+	flag.Parse()
+
+	// get map file path
+	MapPath = *mapPtr
+
 	// generate aliens
-	numbAliens := os.Args[1:][0]
-	num, err := strconv.Atoi(numbAliens)
-	if err != nil {
-		fmt.Printf("alien-invasion: invalid aliens number\n")
-		usage()
-		return
-	}
-	for i := 0; i < num; i++ {
+	for i := 0; i < *numPtr; i++ {
 		a := strconv.Itoa(i + 1)
 		alienArr = append(alienArr, "a"+a)
 	}

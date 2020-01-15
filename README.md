@@ -2,6 +2,11 @@
 
 Simple Golang program simulates Alien invasion  
 
+## How to get
+```sh
+go get github.com/sysdevguru/alien-invasion
+```
+
 ## How to run
 ```sh
 go mod init

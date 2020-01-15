@@ -3,29 +3,25 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 	"strconv"
 
 	. "github.com/sysdevguru/alien-invasion/step"
+)
+
+const (
+	// DefaultNumberOfAliens if number of Aliens is not provided
+	DefaultNumberOfAliens int = 10
+	// DefaultMapFile used if map file is not provided
+	DefaultMapFile = "maps/map.txt"
 )
 
 var (
 	alienArr = []string{}
 )
 
-func usage() {
-	fmt.Printf("alien-invasion: usage\n")
-	fmt.Printf("\t\t./alien-invasion -aliens=[number of aliens] -map=[map file]\n")
-}
-
 func main() {
-	if len(os.Args[1:]) == 0 || len(os.Args[1:]) > 2 {
-		usage()
-		return
-	}
-
-	numPtr := flag.Int("aliens", 3, "aliens number")
-	mapPtr := flag.String("map", "maps/map.txt", "map file")
+	numPtr := flag.Int("aliens", DefaultNumberOfAliens, "aliens number")
+	mapPtr := flag.String("map", DefaultMapFile, "map file")
 	flag.Parse()
 
 	// get map file path

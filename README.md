@@ -12,6 +12,7 @@ go get github.com/sysdevguru/alien-invasion
 make build
 ./alien-invasion -aliens=[number of aliens] -map=[path to map]
 ```
+Default value of Aliens is 10 and default Map file is "maps/map.txt"  
 
 ## Test
 ```sh

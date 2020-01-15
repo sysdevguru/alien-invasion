@@ -80,7 +80,7 @@ func (s *Step) Run() {
 	newStep := Step{}
 	for {
 		// aliens are all dead or reached movement limit
-		if (s.Count == 20) || len(s.Aliens) == 0 {
+		if (s.Count == 10000) || len(s.Aliens) == 0 {
 			break
 		}
 

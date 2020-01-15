@@ -5,8 +5,13 @@ Simple Golang program simulates Alien invasion
 ## How to run
 ```sh
 go mod init
-go build
+make build
 ./alien-invasion [number of aliens]
+```
+
+## Test
+```sh
+make test
 ```
 
 ## Description

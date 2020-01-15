@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	step = Step{}
+	step   = Step{}
 	dupMap = make(map[int]int)
 )
 
@@ -19,7 +19,7 @@ func init() {
 	step.CurPlace = []int{3, 2, 1, 3, 2}
 	step.Cities = []string{"foo", "bar", "bee", "mar", "jus", "baz"}
 	step.Aliens = []string{"a1", "a2", "a3", "a4", "a5"}
-	
+
 	dupMap[3] = 2
 	dupMap[2] = 2
 	dupMap[1] = 1
@@ -36,9 +36,9 @@ func TestFindCitiesToRemove(t *testing.T) {
 	dups := findCitiesToRemove(dupMap)
 	values := []int{}
 	for _, v := range dups {
-        values = append(values, v)
-    }
-    sort.Ints(values)
+		values = append(values, v)
+	}
+	sort.Ints(values)
 
 	assert.Equal(t, []int{2, 3}, values)
 }
@@ -68,7 +68,7 @@ func TestRemoveCity(t *testing.T) {
 	step.CurPlace = []int{3, 3, 1, 3, 2}
 	step.Cities = []string{"foo", "bar", "bee", "mar", "jus", "baz"}
 	step.Aliens = []string{"a1", "a2", "a3", "a4", "a5"}
-	
+
 	dupMap[3] = 3
 	dupMap[1] = 1
 	dupMap[2] = 1

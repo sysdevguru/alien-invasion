@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	."github.com/sysdevguru/alien-invasion/step"
+	. "github.com/sysdevguru/alien-invasion/step"
 )
 
 var (

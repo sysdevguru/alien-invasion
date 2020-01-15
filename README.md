@@ -10,7 +10,7 @@ go get github.com/sysdevguru/alien-invasion
 ## How to run
 ```sh
 make build
-./alien-invasion [number of aliens]
+./alien-invasion -aliens=[number of aliens] -map=[path to map]
 ```
 
 ## Test

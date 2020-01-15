@@ -9,7 +9,6 @@ go get github.com/sysdevguru/alien-invasion
 
 ## How to run
 ```sh
-go mod init
 make build
 ./alien-invasion [number of aliens]
 ```
